@@ -57,7 +57,7 @@ export default function Register() {
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label
-                className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
+                className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
                 htmlFor="first_name"
               >
                 First Name
@@ -71,7 +71,7 @@ export default function Register() {
             </div>
             <div className="w-full md:w-1/2 px-3">
               <label
-                className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
+                className="block tracking-wide text-gray-700 text-sm font-bold mb-2"
                 htmlFor="last_name"
               >
                 Last Name
@@ -193,10 +193,7 @@ export default function Register() {
             </div>
           </div>
 
-          <div className="text-lg text-black text-center mt-12 mb-6">
-            Login details
-          </div>
-          <div>
+          <div className="mt-8">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="username"
