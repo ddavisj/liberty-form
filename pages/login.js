@@ -107,7 +107,7 @@ export default function Login() {
           </div>
         </form>
         <p className="text-center text-gray-500 text-xs">
-          &copy;2023 Liberty Financial. All rights reserved.
+          &copy;2023 Mystery Financial. All rights reserved.
         </p>
       </div>
     </Layout>
