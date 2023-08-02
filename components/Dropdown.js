@@ -7,14 +7,19 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
-  const [stateterr, setStateterr] = useState("---");
+export default function Dropdown({ stateTerrSelectText }) {
+  const [stateTerr, setStateterr] = useState(stateTerrSelectText);
+
+  const onClickHandler = (val) => {
+    setStateterr(val);
+    document.getElementById("postcode").focus();
+  };
 
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" id="state_terr" className="relative inline-block text-left">
       <div>
-        <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          {stateterr}
+        <Menu.Button className="inline-flex shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          {stateTerr}
           <ChevronDownIcon
             className="-mr-1 h-5 w-5 text-gray-400"
             aria-hidden="true"
@@ -50,9 +55,7 @@ export default function Example() {
                     active ? "bg-gray-100 text-gray-700" : "text-gray-700",
                     "block px-4 py-2 text-sm"
                   )}
-                  onClick={(e) => {
-                    setStateterr(val);
-                  }}
+                  onClick={() => onClickHandler(val)}
                 >
                   {val}
                 </a>

@@ -6,6 +6,8 @@ import Dropdown from "../components/Dropdown";
 export default function Register() {
   const [phone, setPhone] = useState(1);
 
+  const stateTerrSelectText = "--- select ---";
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -18,7 +20,14 @@ export default function Register() {
       password: event.target.password.value,
     };
 
-    // event.target.phone.value.length !== 10
+    // State or Territory Dropdown
+
+    const stateTerr = document.querySelector("#state_terr button").innerText;
+
+    stateTerr === stateTerrSelectText
+      ? state_terr_warning.classList.remove("hidden")
+      : state_terr_warning.classList.add("hidden");
+
     phone.length !== 10
       ? phone_warning.classList.remove("hidden")
       : phone_warning.classList.add("hidden");
@@ -33,7 +42,8 @@ export default function Register() {
       data.username &&
       data.password &&
       phone.length === 10 &&
-      postcode.length === 4
+      postcode.length === 4 &&
+      stateTerr !== "--- select ---"
     ) {
       localStorage.setItem("username", data.username);
       localStorage.setItem("password", data.password);
@@ -160,7 +170,7 @@ export default function Register() {
               />
             </div>
           </div>
-          <div className="flex flex-wrap -mx-3 mb-6">
+          <div id="state_parent" className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label
                 className="block tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -168,7 +178,13 @@ export default function Register() {
               >
                 State
               </label>
-              <Dropdown />
+              <Dropdown stateTerrSelectText={stateTerrSelectText} />
+              <p
+                id="state_terr_warning"
+                className="hidden text-red-500 mt-2 font-light text-xs"
+              >
+                Please select a state or territory
+              </p>
             </div>
             <div className="w-full md:w-1/2 px-3">
               <label
