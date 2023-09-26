@@ -58,9 +58,7 @@ export default function Register() {
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
           onSubmit={handleSubmit}
         >
-          <div className="text-xl text-black text-center">
-            Welcome to Liberty
-          </div>
+          <div className="text-xl text-black text-center">Welcome</div>
           <div className="text-lg text-black text-center mt-4 mb-6">
             Please enter your details below to register
           </div>
